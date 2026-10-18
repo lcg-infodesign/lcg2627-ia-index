@@ -71,13 +71,24 @@ function drawRocket(x, y, scl=1, angle=0){
 
 // muovere il razzo: a destra e verso l'alto
 function moveRocket(){
-  xRocket = (xRocket +1) % xMax;
+  /*xRocket = (xRocket +1) % xMax;
   yRocket = yRocket -1;
 
   // oltre la soglia, il razzo riparte dal basso
-  let soglia = - (yMax * 0.6);
+  let soglia = - (yMax * 0.6);th
   if (yRocket < soglia){
     yRocket = yMax;
+  }*/
+
+  // muovere il razzo: a destra e verso l'alto (retta 45°)
+  xRocket = xRocket + 1;
+  yRocket = yRocket - 1;
+
+  // se il razzo è uscito in alto a destra,
+  // riparte dal basso a sinistra
+  if (xRocket > xMax - 40 && yRocket < 0){
+    xRocket = 0;
+    yRocket = yMax - 40; // calcolare la posizione in basso considerando l'altezza del razzo ruotato
   }
 }
 

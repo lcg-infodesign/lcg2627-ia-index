@@ -59,7 +59,7 @@ async function setup(){ // in p5js version 2 preload non esiste più, quindi si 
     createCanvas(xMax, yMax); // crea la finestra 400x600
 
     /* Loading data p5js version 2 */
-    table = await loadTable("stars.csv", "csv", "header");
+    table = await loadTable("stars.csv", ",", "header");
     starImg = await loadImage("star.png");
     rocketImg = await loadImage("rocket.png");
 
